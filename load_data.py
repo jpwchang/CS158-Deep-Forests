@@ -1,4 +1,5 @@
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from scipy.sparse import csr_matrix
 from glob import iglob
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -10,13 +11,14 @@ from constants import *
 
 def load_data():
     # load the data from file if possible
-    if os.path.isfile("X_cached.npy") and os.path.isfile("y_cached.npy") and os.path.isfile("tfidf_cached.pickle"):
-        X = np.load("X_cached.npy")
+    if os.path.isfile("X_cached.npz") and os.path.isfile("y_cached.npy") and os.path.isfile("tfidf_cached.pickle"):
+        loader = np.load("X_cached.npz")
+        X = csr_matrix((loader['data'], loader['indices'], loader['indptr']), shape=loader['shape'])
         y = np.load("y_cached.npy")
-        tfidf_file = open("tfidf_cached.pickle", "r")
+        tfidf_file = open("tfidf_cached.pickle", "rb")
         tfidf = pickle.load(tfidf_file)
         tfidf_file.close()
-        return X, y
+        return X, y, tfidf
 
     # otherwise generate from scratch
     texts = []
@@ -34,9 +36,9 @@ def load_data():
     X = tfidf.fit_transform(texts)
     y = np.array(labels)
     # save data to file for future use
-    np.save("X_cached.npy", X)
+    np.savez("X_cached.npz", data=X.data, indices=X.indices, indptr=X.indptr, shape=X.shape)
     np.save("y_cached.npy", y)
-    tfidf_file = open("tfidf_cached.pickle", "w")
+    tfidf_file = open("tfidf_cached.pickle", "wb")
     pickle.dump(tfidf, tfidf_file)
     tfidf_file.close()
     return X, y, tfidf
