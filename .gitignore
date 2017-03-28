@@ -1,2 +1,4 @@
 amazon_book_reviews
 *.pyc
+*.vscode
+*.npy

@@ -18,12 +18,13 @@ def load_data():
     texts = []
     labels = []
     cur_text = 0
-    for filename in iglob(DATA_PATH + "*.csv"):
+    for filename in iglob(os.path.join(DATA_PATH, "*.csv")):
         csv_table = pd.read_csv(filename, delimiter='\t')
         csv_table.columns = ['rating', 'url', 'title', 'html']
         texts += [BeautifulSoup(h, 'lxml').text for h in csv_table.html]
         labels += [cur_text for i in csv_table.html]
         cur_text += 1
+        print("Finished processing file:" + filename)
 
     tfidf = TfidfVectorizer()
     X = tfidf.fit_transform(texts)

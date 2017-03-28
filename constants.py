@@ -1,1 +1,2 @@
-DATA_PATH = "./amazon_book_reviews/"
+import os
+DATA_PATH = os.path.join(".","amazon_book_reviews")
