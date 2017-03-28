@@ -29,8 +29,8 @@ def load_data():
     X = tfidf.fit_transform(texts)
     y = np.array(labels)
     # save data to file for future use
-    X.save("X_cached.npy")
-    y.save("y_cached.npy")
+    np.save("X_cached.npy", X)
+    np.save("y_cached.npy", y)
     return X, y
 
 if __name__ == '__main__':
