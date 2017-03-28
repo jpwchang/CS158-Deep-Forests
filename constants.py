@@ -1,0 +1,1 @@
+DATA_PATH = "./amazon_book_reviews/"
