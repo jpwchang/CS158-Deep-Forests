@@ -13,11 +13,11 @@ from constants import *
 
 def main():
     X, y, tfidf = load_data()
-    fnames = tfidf.get_feature_names()
+    fnames = np.asarray(tfidf.get_feature_names())
     classes = np.unique(y)
     for book in classes:
         book_indices = np.where(y==book)[0]
-        book_features = np.sum(X[book_indices, :], axis=0)
+        book_features = np.asarray(np.sum(X[book_indices, :], axis=0)).flatten()
         top_feature_indices = np.argpartition(book_features, -15)[-15:]
         top_feature_values = book_features[top_feature_indices]
 
@@ -25,7 +25,7 @@ def main():
         plt.bar(np.arange(15), top_feature_values)
         plt.xlabel("Word")
         plt.ylabel("Tfidf score")
-        plt.title("Top words in book %d", book)
+        plt.title("Top words in book %d" % book)
         plt.xticks(np.arange(15), fnames[top_feature_indices])
         plt.show()
 
