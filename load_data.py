@@ -32,7 +32,7 @@ def load_data():
         cur_text += 1
         print("Finished processing file:" + filename)
 
-    tfidf = TfidfVectorizer()
+    tfidf = TfidfVectorizer(stop_words='english')
     X = tfidf.fit_transform(texts)
     y = np.array(labels)
     # save data to file for future use
