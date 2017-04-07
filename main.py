@@ -5,6 +5,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 from load_data import load_data
 from baseline import TitleFinder
+from baseline_author import AuthorFinder
 
 def main():
     if len(sys.argv) < 2:
@@ -17,6 +18,9 @@ def main():
     model = None
     if sys.argv[1] == "baseline":
         model = TitleFinder(tfidf.get_feature_names())
+    
+    if sys.argv[1] == "author":
+        model = AuthorFinder(tfidf.get_feature_names()) 
 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)   
