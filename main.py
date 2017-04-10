@@ -33,7 +33,7 @@ def main():
     elif sys.argv[1] == "forest":
         model = RandomForestClassifier()
     elif sys.argv[1] == "deepforest":
-        model = gcForest(shape_1X=NUM_FEATURES)
+        model = gcForest(shape_1X=NUM_FEATURES, n_jobs=-1)
 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)   
