@@ -24,8 +24,9 @@ def main():
     if sys.argv[1] != "baseline" and sys.argv[1] != "author":
         fs = SelectKBest(k=NUM_FEATURES)
         X = fs.fit_transform(X,y)
+        X = np.asarray(X.todense())
     
-    X_train, X_test, y_train, y_test = train_test_split(np.asarray(X.todense()), y, train_size=0.6, random_state=1337, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
     model = None
     if sys.argv[1] == "baseline":

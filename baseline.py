@@ -26,7 +26,7 @@ class TitleFinder(BaseEstimator):
         y = np.zeros(n)
 
         for row in range(n):
-            data = X[row,:].reshape([-1])
+            data = np.asarray(X[row,:].todense()).reshape([-1])
             if data[self.indices["martian"]] > 0:
                 y[row] = 0
             elif data[self.indices["goldfinch"]] > 0:
