@@ -31,7 +31,7 @@ def main():
     elif sys.argv[1] == "author":
         model = AuthorFinder(tfidf.get_feature_names()) 
     elif sys.argv[1] == "forest":
-        model = RandomForestClassifier()
+        model = RandomForestClassifier(n_jobs=-1)
     elif sys.argv[1] == "deepforest":
         model = gcForest(shape_1X=NUM_FEATURES, n_jobs=-1)
 
