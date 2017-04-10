@@ -10,6 +10,7 @@ from gcForest.GCForest import gcForest
 from load_data import load_data
 from baseline import TitleFinder
 from baseline_author import AuthorFinder
+from constants import *
 
 def main():
     if len(sys.argv) < 2:
@@ -19,7 +20,7 @@ def main():
     X,y,tfidf = load_data()
 
     # feature selection to make the problem tractable for gcforest
-    fs = SelectKBest(k=100)
+    fs = SelectKBest(k=NUM_FEATURES)
     X = fs.fit_transform(X,y)
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
@@ -32,7 +33,7 @@ def main():
     elif sys.argv[1] == "forest":
         model = RandomForestClassifier()
     elif sys.argv[1] == "deepforest":
-        model = gcForest(shape_1X=100)
+        model = gcForest(shape_1X=NUM_FEATURES)
 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)   
