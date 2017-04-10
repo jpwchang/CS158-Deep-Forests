@@ -23,7 +23,7 @@ def main():
     fs = SelectKBest(k=NUM_FEATURES)
     X = fs.fit_transform(X,y)
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(X.todense(), y, train_size=0.6, random_state=1337, stratify=y)
     
     model = None
     if sys.argv[1] == "baseline":
@@ -33,7 +33,8 @@ def main():
     elif sys.argv[1] == "forest":
         model = RandomForestClassifier(n_jobs=-1)
     elif sys.argv[1] == "deepforest":
-        model = gcForest(shape_1X=NUM_FEATURES, n_jobs=-1)
+        model = gcForest(shape_1X=NUM_FEATURES, window=[NUM_FEATURES // 16, NUM_FEATURES // 9, NUM_FEATURES // 4],
+                         n_cascadeRFtree=1000, n_jobs=-1)
 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)   
