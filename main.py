@@ -21,8 +21,9 @@ def main():
     X,y,tfidf = load_data()
 
     # feature selection to make the problem tractable for gcforest
-    fs = SelectKBest(k=NUM_FEATURES)
-    X = fs.fit_transform(X,y)
+    if sys.argv[1] != "baseline" and sys.argv[1] != "author":
+        fs = SelectKBest(k=NUM_FEATURES)
+        X = fs.fit_transform(X,y)
     
     X_train, X_test, y_train, y_test = train_test_split(np.asarray(X.todense()), y, train_size=0.6, random_state=1337, stratify=y)
     

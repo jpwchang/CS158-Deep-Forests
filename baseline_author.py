@@ -26,7 +26,7 @@ class AuthorFinder(BaseEstimator):
         y = np.zeros(n)
 
         for row in range(n):
-            data = np.asarray(X[row,:].todense()).reshape([-1])
+            data = X[row,:].reshape([-1])
             if data[self.indices["andy"]] > 0 or data[self.indices["weir"]] > 0:
                 y[row] = 0
             elif data[self.indices["donna"]] > 0 or data[self.indices["tartt"]] > 0:
