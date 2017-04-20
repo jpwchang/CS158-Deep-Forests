@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectKBest
+from sklearn.model_selection import cross_val_score
 
 from gcForest.GCForest import gcForest
 
@@ -25,10 +26,10 @@ def main():
     X = fs.fit_transform(X,y)
     X = np.asarray(X.todense())
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
+    X_train, _, y_train, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
-    possibleNumTrees = []
-    possibleNumForests = []
+    possibleNumTrees = [25, 50, 100, 200]
+    possibleNumForests = [2, 4, 6]
 
     bestAccuracy = -float("inf")
     bestNumTrees = 0
@@ -36,13 +37,11 @@ def main():
 
     for numForests in possibleNumForests:
         for numTrees in possibleNumTrees:
+            print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
             model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
-            model.fit(X_train,y_train)
-            y_pred = model.predict(X_test)
-            accuracy = accuracy_score(y_test, y_pred)
-            print(confusion_matrix(y_test, y_pred))
-            print(classification_report(y_test, y_pred))
-            print("Accuracy:", accuracy)
+            scores = cross_val_score(model, X_train, y_train, scoring='accuracy')
+            print("Cross validation scores:", scores)
+            accuracy = np.mean(scores)
 
             if accuracy > bestAccuracy:
                 bestAccuracy = accuracy
