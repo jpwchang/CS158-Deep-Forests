@@ -49,9 +49,15 @@ def main():
                 model.fit(X_train, y_train)
                 y_pred = model.predict(X_test)
                 scores.append(accuracy_score(y_test, y_pred))
-            print("Cross validation scores:", scores)
+            print("\n Results of testing numForests=%d, numTrees=%d" % (numForests, numTrees))
             sys.stdout.flush()
+            print("Cross validation scores:", scores)
+            sys.stdout.flush()           
             accuracy = np.mean(scores)
+            print("Average Cross Validation score:", accuracy)
+            sys.stdout.flush()
+            print("\n")
+            sys,stdout.flush()
 
             if accuracy > bestAccuracy:
                 bestAccuracy = accuracy
