@@ -20,6 +20,7 @@ def main():
 
     # Number of Features
     print("Using ", NUM_FEATURES, "Features based on tf-idf")
+    sys.stdout.flush()
 
     # feature selection to make the problem tractable for gcforest
     fs = SelectKBest(k=NUM_FEATURES)
@@ -39,15 +40,17 @@ def main():
     for numForests in possibleNumForests:
         for numTrees in possibleNumTrees:
             print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
+            sys.stdout.flush()
             scores = []
             for train_index, test_index in folds.split(X, y):
-                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
+                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=10)
                 X_train, X_test = X[train_index, :], X[test_index, :]
                 y_train, y_test = y[train_index], y[test_index]
                 model.fit(X_train, y_train)
                 y_pred = model.predict(X_test)
                 scores.append(accuracy_score(y_test, y_pred))
             print("Cross validation scores:", scores)
+            sys.stdout.flush()
             accuracy = np.mean(scores)
 
             if accuracy > bestAccuracy:
@@ -56,8 +59,11 @@ def main():
                 bestNumForests = numForests
     
     print("Best Accuracy = ", bestAccuracy)
+    sys.stdout.flush()
     print("best Num Forests =". bestNumForests)
+    sys.stdout.flush()
     print("Best Num Trees =", bestNumTrees)
+    sys.stdout.flush()
 
 if __name__ == '__main__':
     main()
