@@ -28,7 +28,7 @@ def main():
     
     X, _, y, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
-    possibleNumTrees = [25, 50, 100, 200]
+    possibleNumTrees = [50, 100, 200]
     possibleNumForests = [2, 4, 6]
 
     bestAccuracy = -float("inf")
@@ -45,7 +45,7 @@ def main():
                 X_train, X_test = X[train_index, :], X[test_index, :]
                 y_train, y_test = y[train_index], y[test_index]
                 model.fit(X_train, y_train)
-                y_pred = model.predict(y_test)
+                y_pred = model.predict(X_test)
                 scores.append(accuracy_score(y_test, y_pred))
             print("Cross validation scores:", scores)
             accuracy = np.mean(scores)
