@@ -29,8 +29,8 @@ def main():
     
     X, _, y, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
-    possibleNumTrees = [50, 100, 200]
-    possibleNumForests = [2, 4, 6]
+    possibleNumTrees = [400, 800, 1000]
+    possibleNumForests = [2, 4, 6, 8, 10]
 
     bestAccuracy = -float("inf")
     bestNumTrees = 0
@@ -43,7 +43,7 @@ def main():
             sys.stdout.flush()
             scores = []
             for train_index, test_index in folds.split(X, y):
-                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=10)
+                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=15)
                 X_train, X_test = X[train_index, :], X[test_index, :]
                 y_train, y_test = y[train_index], y[test_index]
                 model.fit(X_train, y_train)
