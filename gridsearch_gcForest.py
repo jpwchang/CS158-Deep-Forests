@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectKBest
-from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import StratifiedKFold
 
 from gcForest.GCForest import gcForest
 
@@ -26,7 +26,7 @@ def main():
     X = fs.fit_transform(X,y)
     X = np.asarray(X.todense())
     
-    X_train, _, y_train, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
+    X, _, y, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
     possibleNumTrees = [25, 50, 100, 200]
     possibleNumForests = [2, 4, 6]
@@ -35,11 +35,18 @@ def main():
     bestNumTrees = 0
     bestNumForests = 0
 
+    folds = StratifiedKFold(random_state=1337)
     for numForests in possibleNumForests:
         for numTrees in possibleNumTrees:
             print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
-            model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
-            scores = cross_val_score(model, X_train, y_train, scoring='accuracy')
+            scores = []
+            for train_index, test_index in folds.split(X):
+                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
+                X_train, X_test = X[train_index, :], X[test_index, :]
+                y_train, y_test = y[train_index], y[test_index]
+                model.fit(X_train, y_train)
+                y_pred = model.predict(y_test)
+                scores.append(accuracy_score(y_test, y_pred))
             print("Cross validation scores:", scores)
             accuracy = np.mean(scores)
 
