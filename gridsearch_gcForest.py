@@ -40,7 +40,7 @@ def main():
         for numTrees in possibleNumTrees:
             print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
             scores = []
-            for train_index, test_index in folds.split(X):
+            for train_index, test_index in folds.split(X, y):
                 model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
                 X_train, X_test = X[train_index, :], X[test_index, :]
                 y_train, y_test = y[train_index], y[test_index]
