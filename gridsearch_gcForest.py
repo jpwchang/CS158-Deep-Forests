@@ -29,8 +29,8 @@ def main():
     
     X, _, y, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
-    possibleNumTrees = [400, 800, 1000]
-    possibleNumForests = [2, 4, 6, 8, 10]
+    possibleNumTrees = [400, 800, 1000, 1200]
+    possibleNumForests = [2, 4, 6, 8, 10, 12]
 
     bestAccuracy = -float("inf")
     bestNumTrees = 0
