@@ -48,7 +48,7 @@ def main():
                 model.fit(X_train, y_train)
                 y_pred = model.predict(X_test)
                 scores.append(accuracy_score(y_test, y_pred))
-            print("\n Results of testing numForests=%d, numTrees=%d" % (numForests, numTrees))
+            print("\nResults of testing numForests=%d, numTrees=%d" % (numForests, numTrees))
             print("Cross validation scores:", scores)       
             accuracy = np.mean(scores)
             print("Average Cross Validation score:", accuracy)
