@@ -1,0 +1,347 @@
+Grid search using 2000 samples and feature size of 500.
+
+Using  500 Features based on tf-idf
+Now testing numForests=2, numTrees=400
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8078125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82890625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.828125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.80859375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8078125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82109375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.81875
+
+ Results of testing numForests=2, numTrees=400
+Cross validation scores: [0.82437499999999997, 0.82968750000000002, 0.82125000000000004]
+Average Cross Validation score: 0.825104166667
+
+
+Now testing numForests=2, numTrees=800
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.78828125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.80703125
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.80546875
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.81484375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.83359375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8359375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8296875
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.79296875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.80859375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.81171875
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8078125
+
+ Results of testing numForests=2, numTrees=800
+Cross validation scores: [0.82437499999999997, 0.82187500000000002, 0.82218749999999996]
+Average Cross Validation score: 0.8228125
+
+
+Now testing numForests=2, numTrees=1000
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8109375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.809375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.81796875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8203125
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8140625
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82421875
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82265625
+
+ Results of testing numForests=2, numTrees=1000
+Cross validation scores: [0.82343750000000004, 0.82781249999999995, 0.82468750000000002]
+Average Cross Validation score: 0.8253125
+
+
+Now testing numForests=2, numTrees=1200
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.7890625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.79375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8296875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.83359375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82578125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.7953125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82109375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.81875
+
+ Results of testing numForests=2, numTrees=1200
+Cross validation scores: [0.828125, 0.82468750000000002, 0.82781249999999995]
+Average Cross Validation score: 0.826875
+
+
+Now testing numForests=4, numTrees=400
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.80859375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82890625
+Adding/Training Layer, n_layer=5
+Layer validation accuracy = 0.83046875
+Adding/Training Layer, n_layer=6
+Layer validation accuracy = 0.8328125
+Adding/Training Layer, n_layer=7
+Layer validation accuracy = 0.8328125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.80234375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.825
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.83046875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82734375
+
+ Results of testing numForests=4, numTrees=400
+Cross validation scores: [0.823125, 0.82656249999999998, 0.82625000000000004]
+Average Cross Validation score: 0.8253125
+
+
+Now testing numForests=4, numTrees=800
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.78984375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.81875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8203125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.80625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8328125
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.83125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.821875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8296875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82890625
+
+ Results of testing numForests=4, numTrees=800
+Cross validation scores: [0.82687500000000003, 0.82937499999999997, 0.82562500000000005]
+Average Cross Validation score: 0.827291666667
+
+
+Now testing numForests=4, numTrees=1000
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.7796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.81875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8203125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.78203125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8109375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8171875
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.8140625
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.81484375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.83515625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.83359375
+
+ Results of testing numForests=4, numTrees=1000
+Cross validation scores: [0.82499999999999996, 0.8309375, 0.82468750000000002]
+Average Cross Validation score: 0.826875
+
+
+Now testing numForests=4, numTrees=1200
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8265625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.79453125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.81875
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8078125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82890625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82890625
+
+ Results of testing numForests=4, numTrees=1200
+Cross validation scores: [0.82781249999999995, 0.82593749999999999, 0.823125]
+Average Cross Validation score: 0.825625
+
+
+Now testing numForests=6, numTrees=400
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.79375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.821875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82109375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8046875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82890625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.82578125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.81015625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.83515625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.834375
+
+ Results of testing numForests=6, numTrees=400
+Cross validation scores: [0.82218749999999996, 0.83250000000000002, 0.83218749999999997]
+Average Cross Validation score: 0.828958333333
+
+
+Now testing numForests=6, numTrees=800
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.79453125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8109375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.821875
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.790625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8140625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8484375
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.84140625
+
+ Results of testing numForests=6, numTrees=800
+Cross validation scores: [0.82406250000000003, 0.82906250000000004, 0.82187500000000002]
+Average Cross Validation score: 0.825
+
+
+Now testing numForests=6, numTrees=1000
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8296875
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8328125
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.82734375
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.81953125
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8453125
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8453125
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.81015625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82265625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.821875
+
+ Results of testing numForests=6, numTrees=1000
+Cross validation scores: [0.82750000000000001, 0.83218749999999997, 0.823125]
+Average Cross Validation score: 0.827604166667
+
+
+Now testing numForests=6, numTrees=1200
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.790625
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8203125
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.81640625
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.82109375
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8390625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.84453125
+Adding/Training Layer, n_layer=4
+Layer validation accuracy = 0.84609375
+Adding/Training Layer, n_layer=5
+Layer validation accuracy = 0.840625
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.8046875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.8265625
+Adding/Training Layer, n_layer=3
+Layer validation accuracy = 0.8234375
+
+ Results of testing numForests=6, numTrees=1200
+Cross validation scores: [0.823125, 0.83187500000000003, 0.82750000000000001]
+Average Cross Validation score: 0.8275
+
+
+Now testing numForests=8, numTrees=400
+Adding/Training Layer, n_layer=1
+Layer validation accuracy = 0.796875
+Adding/Training Layer, n_layer=2
+Layer validation accuracy = 0.82578125
+Adding/Training Layer, n_layer=3
