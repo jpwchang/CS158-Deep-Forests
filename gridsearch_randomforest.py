@@ -28,35 +28,30 @@ def main():
     
     X, _, y, _ = train_test_split(X, y, train_size=0.6, random_state=1337, stratify=y)
     
-    possibleNumTrees = [50, 100, 200]
-    possibleNumForests = [2, 4, 6]
+    possibleNumTrees = [200, 400, 800, 1600]
 
     bestAccuracy = -float("inf")
     bestNumTrees = 0
-    bestNumForests = 0
 
     folds = StratifiedKFold(random_state=1337)
-    for numForests in possibleNumForests:
-        for numTrees in possibleNumTrees:
-            print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
-            scores = []
-            for train_index, test_index in folds.split(X, y):
-                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=-1)
-                X_train, X_test = X[train_index, :], X[test_index, :]
-                y_train, y_test = y[train_index], y[test_index]
-                model.fit(X_train, y_train)
-                y_pred = model.predict(X_test)
-                scores.append(accuracy_score(y_test, y_pred))
-            print("Cross validation scores:", scores)
-            accuracy = np.mean(scores)
+    for numTrees in possibleNumTrees:
+        print("Now testing numTrees=%d" % numTrees)
+        scores = []
+        for train_index, test_index in folds.split(X, y):
+            model = RandomForestClassifier(n_estimators=numTrees)
+            X_train, X_test = X[train_index, :], X[test_index, :]
+            y_train, y_test = y[train_index], y[test_index]
+            model.fit(X_train, y_train)
+            y_pred = model.predict(X_test)
+            scores.append(accuracy_score(y_test, y_pred))
+        print("Cross validation scores:", scores)
+        accuracy = np.mean(scores)
 
-            if accuracy > bestAccuracy:
-                bestAccuracy = accuracy
-                bestNumTrees = numTrees
-                bestNumForests = numForests
-    
+        if accuracy > bestAccuracy:
+            bestAccuracy = accuracy
+            bestNumTrees = numTrees
+
     print("Best Accuracy = ", bestAccuracy)
-    print("best Num Forests =", bestNumForests)
     print("Best Num Trees =", bestNumTrees)
 
 if __name__ == '__main__':

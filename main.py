@@ -34,9 +34,9 @@ def main():
     elif sys.argv[1] == "author":
         model = AuthorFinder(tfidf.get_feature_names()) 
     elif sys.argv[1] == "forest":
-        model = RandomForestClassifier(n_estimators=30, n_jobs=-1)
+        model = RandomForestClassifier(n_estimators=800, n_jobs=-1)
     elif sys.argv[1] == "deepforest":
-        model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=4, n_cascadeRFtree=30, n_jobs=-1)
+        model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=6, n_cascadeRFtree=100, n_jobs=-1)
 
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)   
