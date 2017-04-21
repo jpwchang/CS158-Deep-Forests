@@ -40,36 +40,27 @@ def main():
     for numForests in possibleNumForests:
         for numTrees in possibleNumTrees:
             print("Now testing numForests=%d, numTrees=%d" % (numForests, numTrees))
-            sys.stdout.flush()
             scores = []
             for train_index, test_index in folds.split(X, y):
-                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=15)
+                model = gcForest(shape_1X=NUM_FEATURES, n_cascadeRF=numForests, n_cascadeRFtree=numTrees, n_jobs=20)
                 X_train, X_test = X[train_index, :], X[test_index, :]
                 y_train, y_test = y[train_index], y[test_index]
                 model.fit(X_train, y_train)
                 y_pred = model.predict(X_test)
                 scores.append(accuracy_score(y_test, y_pred))
             print("\n Results of testing numForests=%d, numTrees=%d" % (numForests, numTrees))
-            sys.stdout.flush()
-            print("Cross validation scores:", scores)
-            sys.stdout.flush()           
+            print("Cross validation scores:", scores)       
             accuracy = np.mean(scores)
             print("Average Cross Validation score:", accuracy)
-            sys.stdout.flush()
             print("\n")
-            sys,stdout.flush()
-
             if accuracy > bestAccuracy:
                 bestAccuracy = accuracy
                 bestNumTrees = numTrees
                 bestNumForests = numForests
     
     print("Best Accuracy = ", bestAccuracy)
-    sys.stdout.flush()
     print("best Num Forests =". bestNumForests)
-    sys.stdout.flush()
     print("Best Num Trees =", bestNumTrees)
-    sys.stdout.flush()
 
 if __name__ == '__main__':
     main()
