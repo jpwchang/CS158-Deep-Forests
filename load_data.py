@@ -27,7 +27,7 @@ def load_data():
     for filename in iglob(os.path.join(DATA_PATH, "*.csv")):
         csv_table = pd.read_csv(filename, delimiter='\t')
         csv_table.columns = ['rating', 'url', 'title', 'html']
-        csv_table = csv_table.head(2000)
+        csv_table = csv_table.head(SAMPLES_PER_BOOK)
         texts += [BeautifulSoup(h, 'lxml').text for h in csv_table.html]
         labels += [cur_text for i in csv_table.html]
         cur_text += 1

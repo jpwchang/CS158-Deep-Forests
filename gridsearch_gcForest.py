@@ -59,7 +59,7 @@ def main():
                 bestNumForests = numForests
     
     print("Best Accuracy = ", bestAccuracy)
-    print("best Num Forests =". bestNumForests)
+    print("best Num Forests =", bestNumForests)
     print("Best Num Trees =", bestNumTrees)
 
 if __name__ == '__main__':
