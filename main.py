@@ -11,6 +11,7 @@ from gcForest.GCForest import gcForest
 from load_data import load_data
 from baseline import TitleFinder
 from baseline_author import AuthorFinder
+from baseline_author_title import AuthorTitleFinder
 from constants import *
 
 def main():
@@ -21,7 +22,7 @@ def main():
     X,y,tfidf = load_data()
 
     # feature selection to make the problem tractable for gcforest
-    if sys.argv[1] != "baseline" and sys.argv[1] != "author":
+    if sys.argv[1] != "baseline" and sys.argv[1] != "author" and sys.argv[1] != "author_title":
         fs = SelectKBest(k=NUM_FEATURES)
         X = fs.fit_transform(X,y)
         X = np.asarray(X.todense())
@@ -33,6 +34,8 @@ def main():
         model = TitleFinder(tfidf.get_feature_names())
     elif sys.argv[1] == "author":
         model = AuthorFinder(tfidf.get_feature_names()) 
+    elif sys.argv[1] == "author_title":
+        model = AuthorTitleFinder(tfidf.get_feature_names())
     elif sys.argv[1] == "forest":
         model = RandomForestClassifier(n_estimators=800, n_jobs=20)
     elif sys.argv[1] == "deepforest":
